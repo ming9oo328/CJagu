@@ -60,5 +60,4 @@ int LNext(List* plist, Data* pdata) {
 	plist->cur = plist->cur->next;
 	*pdata = plist->cur->data;
 	return TRUE;
-
 }
