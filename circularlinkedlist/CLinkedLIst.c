@@ -61,3 +61,29 @@ int LNext(List* plist, Data* pdata) {
 	*pdata = plist->cur->data;
 	return TRUE;
 }
+
+Data LRemove(List* plist) {
+	Node* rpos = plist->cur;
+	Data rdata = rpos->data;
+
+	if (rpos == plist->tail) {
+		if (plist->tail == plist->tail->next) {
+			plist->tail = NULL;
+		}
+		else {
+			plist->tail = plist->before;
+		}
+	}
+
+	plist->before->next = plist->cur->next; //삭제할 노드 건너뛰어서 참조
+	plist->cur = plist->before;
+
+	free(rpos);
+	(plist->numOfData)--;
+	return rdata;
+}
+
+int LCount(List* plist)
+{
+	return plist->numOfData;
+}
