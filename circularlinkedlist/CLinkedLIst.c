@@ -43,3 +43,22 @@ void LInsertFront(List* plist, Data* data) {
 
 	(plist->numOfData)++;
 }
+
+int LFirst(List* plist, Data* pdata) {
+	if (plist->tail = NULL) 
+		return FALSE;
+	plist->before = plist->tail;
+	plist->cur = plist->tail->next;
+	*pdata = plist->cur->data;
+	return TRUE;
+}
+
+int LNext(List* plist, Data* pdata) {
+	if (plist->tail = NULL)
+		return FALSE;
+	plist->before = plist->cur;
+	plist->cur = plist->cur->next;
+	*pdata = plist->cur->data;
+	return TRUE;
+
+}
