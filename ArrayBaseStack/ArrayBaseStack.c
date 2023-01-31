@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "ArrayBaseStack.h"
 
 void StackInit(Stack* pstack) {
@@ -15,25 +16,25 @@ int SIsEmpty(Stack* pstack) {
 }
 
 void SPush(Stack* pstack, Data data) {
-	(pstack->topIndex) ++;
+	pstack->topIndex +=1;
 	pstack->stackArr[pstack->topIndex] = data;
 }
 
 Data SPop(Stack* pstack) {
-	if (!SIsEmpty(&pstack)) {
-		return (pstack->stackArr[pstack->topIndex]);
-		//pstack->stackArr[pstack->topIndex] = NULL;
-		(pstack->topIndex)--;
+	if (SIsEmpty(pstack)) {
+		exit(-1);
 	}
 	else {
-		exit(-1);
+		int tmp = pstack->topIndex;
+		pstack->topIndex-=1;
+		return(pstack->stackArr[tmp]);
 	}
 }
 Data SPeek(Stack* pstack) {
-	if (!SIsEmpty(&pstack)) {
-		return (pstack->stackArr[pstack->topIndex]);
+	if (SIsEmpty(pstack)) {
+		exit(-1);
 	}
 	else {
-		exit(-1);
+		return(pstack->stackArr[pstack->topIndex]);
 	}
 }
