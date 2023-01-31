@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{81dc11a8-162a-4cae-842a-dca2215622a4}</ProjectGuid>
-    <RootNamespace>DBLinkedList</RootNamespace>
+    <ProjectGuid>{ba6d3995-b904-4109-93aa-6a988e16da35}</ProjectGuid>
+    <RootNamespace>ArrayBaseStack</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,11 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="DBLinkedList.h" />
+    <ClInclude Include="ArrayBaseStack.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DBLinkedList.c" />
-    <ClCompile Include="DBLinkedListMain.c" />
+    <ClCompile Include="ArrayBaseStack.c" />
+    <ClCompile Include="ArrayBaseStackMain.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
