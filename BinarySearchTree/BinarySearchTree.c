@@ -7,8 +7,8 @@ void BSTMakeAndInit(BTreeNode** pRoot) {
 	*pRoot = NULL;
 }
 
-BSTData BSTGetNOdeData(BTreeNode* bst) {
-	return getData(bst);
+BSTData BSTGetNodeData(BTreeNode* bst) {
+	return GetData(bst);
 }
 
 void BSTInsert(BTreeNode** pRoot, BSTData data) {
@@ -17,25 +17,47 @@ void BSTInsert(BTreeNode** pRoot, BSTData data) {
 	BTreeNode* nNode = NULL;
 
 	while (cNode!=NULL) {
+
+		if (GetData(cNode) == data)
+			return;
 		pNode = cNode;
+		if (GetData(cNode) < data)
+			cNode = GetRightSubTree(cNode);
 
-		if (cNode->data < data)
-		    cNode = GetRightSubTree(cNode);
+		else if (GetData(cNode) > data)
+			cNode = GetLeftSubTree(cNode);
 
-		else if (cNode->data > data)
-		    cNode = GetLeftSubTree(cNode);
 	}
-
-	nNode = MakeBTreeNode;
+	nNode = MakeBTreeNode();
 	SetData(nNode, data);
 
-	if (GetData(pNode) < data)
-		MakeRightSubTree(pNode, nNode);
-	else if (GetData(pNode)> data)
-		MakeLeftSubTree(pNode, nNode);
+	if (pNode != NULL) {
+		if (GetData(pNode) < data)
+			MakeRightSubTree(pNode, nNode);
+		else if (GetData(pNode) > data)
+			MakeLeftSubTree(pNode, nNode);
+	}
+	else
+		*pRoot = nNode;
 }
 
 
 BTreeNode* BSTSearch(BTreeNode* bst, BSTData target) {
+	BTreeNode* cNode = bst;
+	BTData cd;
 
+	while (cNode != NULL) {
+		cd = GetData(cNode);
+
+		if (cd == target) {
+			return cNode;
+		}
+		else {
+			if (cd < target)
+				cNode = GetRightSubTree(cNode);
+
+			else if (cd > target)
+				cNode = GetLeftSubTree(cNode);
+		}
+	}
 }
