@@ -49,15 +49,11 @@ BTreeNode* BSTSearch(BTreeNode* bst, BSTData target) {
 	while (cNode != NULL) {
 		cd = GetData(cNode);
 
-		if (cd == target) {
+		if (cd == target)
 			return cNode;
-		}
-		else {
-			if (cd < target)
-				cNode = GetRightSubTree(cNode);
-
-			else if (cd > target)
-				cNode = GetLeftSubTree(cNode);
-		}
+		else if (cd < target)
+			cNode = GetRightSubTree(cNode);
+		else if (cd > target)
+			cNode = GetLeftSubTree(cNode);
 	}
 }
