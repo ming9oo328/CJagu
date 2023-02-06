@@ -100,6 +100,21 @@ BTreeNode* BSTRemove(BTreeNode** pRoot, BSTData target) {
 	}
 
 	//삭제할 노드가 하나의 자식 노드를 갖는 경우
-	if (GetLeftSubTree(dNode)==NULL && GE)
+	else if (GetLeftSubTree(dNode) == NULL || GetRightSubTree(dNode) != NULL) {
+		BTreeNode* dcNode;
 
+		if (GetRighttSubTree(dNode) != NULL) {
+			dcNode = GetRightSubTree(dNode);
+		}
+		else if (GetLeftSubTree(pNode) == dNode) {
+			dcNode = GetRightSubTree(dNode);
+		}
+
+		if (GetLeftSubTree(pNode) == dNode) {
+			ChangeLeftSubTree(pNode, dcNode);
+		}
+		else {
+			ChangeRightSubTree(pNode, dcNode);
+		}
+	}
 }
