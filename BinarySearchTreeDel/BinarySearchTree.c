@@ -101,7 +101,7 @@ BTreeNode* BSTRemove(BTreeNode** pRoot, BSTData target) {
 
 	//삭제할 노드가 하나의 자식 노드를 갖는 경우
 	else if (GetLeftSubTree(dNode) == NULL || GetRightSubTree(dNode) != NULL) {
-		BTreeNode* dcNode;
+		BTreeNode* dcNode=NULL;
 
 		if (GetRighttSubTree(dNode) != NULL) {
 			dcNode = GetRightSubTree(dNode);
@@ -117,4 +117,32 @@ BTreeNode* BSTRemove(BTreeNode** pRoot, BSTData target) {
 			ChangeRightSubTree(pNode, dcNode);
 		}
 	}
+
+	//삭제할 노드가 자식노드를 2개 모두 갖는 경우
+	else {
+		BTreeNode* mNode = GetRightSubTree(dNode);
+		BTreeNode* mpNode = dNode;
+		int delData;
+
+		while (GetLeftSubTree(mNode) != NULL) {
+			mpNode = mNode;
+			mNode = GetLeftSubTree(mNode);
+		}
+		delData = GetData(dNode);
+		SetData(dNode, GetData(mNode));
+		if (GetLeftSubTree(mpNode) == mNode) {
+			ChangeLeftSubTree(mpNode, GetRightSubTree(mNode));
+		}
+		else {
+			ChangeRightSubTree(mpNode, GetRightSubTree(mNode));
+		}
+		dNode = mNode;
+		SetData(dNode, delData);
+	}
+	if (GetRightSubTree(pVRoot) != *pRoot) {
+		*pRoot = GetRightSubTree(pVRoot);
+	}
+
+	free(pVRoot);
+	return dNode;
 }
