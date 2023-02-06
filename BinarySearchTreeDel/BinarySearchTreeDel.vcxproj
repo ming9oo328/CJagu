@@ -131,7 +131,8 @@
     <ClInclude Include="BinaryTree.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BinarySearchTreeDel.c" />
+    <ClCompile Include="BinarySearchTree.c" />
+    <ClCompile Include="BinaryTree.c" />
     <ClCompile Include="BinarySearchTreeDelMain.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

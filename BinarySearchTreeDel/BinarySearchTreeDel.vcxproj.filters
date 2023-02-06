@@ -26,7 +26,10 @@
     <ClCompile Include="BinarySearchTreeDelMain.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="BinarySearchTreeDel.c">
+    <ClCompile Include="BinaryTree.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BinarySearchTree.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
